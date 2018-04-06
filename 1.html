@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">提交</button>
+  <form action="/home">
+    <input type="text" name="color">
+    <input type="submit">
+  </form>
+</body>
+  <script>
+    var btn = document.getElementById('btn');
+    btn.addEventListener('click',function() {
+      console.log('1')
+      var xml = new XMLHttpRequest();
+      xml.open('get','/home?color=#fff');
+      xml.onreadystatechange = function() {
+        if(xml.readyState ==4 && xml.status == 200) {
+          console.log('123')
+        }
+      }
+      xml.send(null)
+    })
+  </script>
+</html>
